@@ -1,0 +1,30 @@
+# Introduction
+
+This book tells the story of a dungeon and it's creator: **YOU**.
+
+This tale has yet to be written. In fact at times, I will need your help filling in the blank spots.
+
+For example: Could you help me come up with a good name and look of this newly created dungeon?
+
+[var name:"dungeonName" value:"Evil Dungeon" /]
+[var name:"dungeonDescription" value:"A dark dungeon deep beneath the surface. It's secrets have long been forgotten. It's purpose wiped from history."/]
+**Dungeon Name:** [TextInput value:dungeonName /]
+**Description:** [TextInput value:dungeonDescription /]
+
+And with that we may begin.
+
+Ready?
+
+This is the story of the [Display value:dungeonName /] and all of it's hidden secrets.
+
+Our story begins with our hero (of course), taking their first steps into the dungeon.
+
+[var name:"heroName" value:"Little Swordington" /]
+[var name:"heroDescription" value:"A brave and young hero, straight out of hero academy. They're not the smartest and definetly not the dumbest. One could say, they are the most generic hero imaginable."/]
+
+[Display value:heroName/] didn't come unprepaired. They own an **amulette of life**.
+How did they obtain it again?
+
+[var name:"lifeAmuletteOrigin" value:"This amulette is a gift from their mother. It should prodect them and remind them where they came from." /]
+[TextInput value:lifeAmuletteOrigin /]
+
