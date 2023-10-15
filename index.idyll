@@ -21,7 +21,7 @@ In fact, you and I will be writting this story together.
 To start, Do you have an idea how the dungeon is called and how it looks like?
 
 [var name:"dungeonName" value:"" /]
-[var name:"dungeonDescription" value:""/]
+[var name:"dungeonDescription" value:" "/]
 **Dungeon Name:** [TextInput value:dungeonName /]
 
 **Description:** [Textarea value:dungeonDescription /]
@@ -33,7 +33,7 @@ I'm interested in seeing where this is going.
 Of course our story will also need a hero. Any ideas?
 
 [var name:"heroName" value:"" /]
-[var name:"heroDescription" value:""/]
+[var name:"heroDescription" value:" "/]
 **Hero Name:** [TextInput value:heroName/]
 
 **Hero Description:** [Textarea value:heroDescription/]
@@ -56,7 +56,7 @@ However this will uncharge the amulette for a day, so keep that in mind.
 [Display value:heroName/] also has an old friend that's always at his side. Who are they?
 
 [var name:"friendName" value:"" /]
-[var name:"friendDescription" value:""/]
+[var name:"friendDescription" value:" "/]
 [var name:"friendProfession" value:"Please Select"/]
 
 **Name:** [TextInput value:friendName/]
@@ -103,7 +103,7 @@ But then finally, it opened up into a big room. The room is self was quite dark.
 After what felt like an hour, the light uncovered a door at the end of the room. But at the same time, they heared a loud noise. They were not along.
 
 [var name:"monsterName" value:"" /]
-[var name:"monsterDescription" value:""/]
+[var name:"monsterDescription" value:" "/]
 
 **Name:** [TextInput value:monsterName/]
 
@@ -112,7 +112,7 @@ After what felt like an hour, the light uncovered a door at the end of the room.
 A [Display value:monsterName/] appeared out of the shadows. How do our heros proceed?
 
 [var name:"resolveMonster" value:-1 /]
-[var name:"resolveMonsterFlavourText" value:""/]
+[var name:"resolveMonsterFlavourText" value:" "/]
 
 [button onClick:`resolveMonster = 0` ]\[Use Heart Card\] Defend the beast, while [Display value:friendName/] heads towards the door.[/button]
 [Conditional if:`friendProfession === "Thief"`]
@@ -159,7 +159,7 @@ Going forward, [Display value:heroName/] will have to care of [Display value:fri
 
 [/Conditional]
 
-[Conditional if:`resolveMonsterFlavourText !== ""`]
+[Conditional if:`resolveMonsterFlavourText !== " "`]
   [button onClick:`page = 2`]Continue[/button]
 [/Conditional]
 
