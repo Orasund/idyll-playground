@@ -15,16 +15,27 @@ And with that we may begin.
 
 Ready?
 
-This is the story of the [Display value:dungeonName /] and all of it's hidden secrets.
+> This is the story of the [Display value:dungeonName /] and all of it's hidden secrets.
 
-Our story begins with our hero (of course), taking their first steps into the dungeon.
+> Our story begins with our hero (of course), taking their first steps into the dungeon.
 
 [var name:"heroName" value:"Little Swordington" /]
 [var name:"heroDescription" value:"A brave and young hero, straight out of hero academy. They're not the smartest and definetly not the dumbest. One could say, they are the most generic hero imaginable."/]
 
-[Display value:heroName/] didn't come unprepaired. They own an **amulette of life**.
+> [Display value:heroName/] didn't come unprepaired. They own an **amulette of life**.
+
 How did they obtain it again?
 
-[var name:"lifeAmuletteOrigin" value:"This amulette is a gift from their mother. It should prodect them and remind them where they came from." /]
+[var name:"lifeAmuletteOrigin" value:"This amulette was a gift from their mother. It should protect them and remind them where they came from." /]
 [TextInput value:lifeAmuletteOrigin /]
 
+_The **Life Card** has been added to your deck_
+
+They also have a special ability. 
+
+Lock picking will let you open locked doors and treasure chests.
+Strength will let you fight again basic enemies.
+Charm will give you more options during conversations.
+
+[var name: heroAbility value:"Lockpick"/]
+[Select value:selectVal options:`["Lockpicking", "Strength", "Charm"]`  /]
