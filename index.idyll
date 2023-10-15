@@ -20,8 +20,8 @@ This tale has yet to be written.
 In fact, you and I will be writting this story together.
 To start, Do you have an idea how the dungeon is called and how it looks like?
 
-[var name:"dungeonName" value:"Evil Dungeon" /]
-[var name:"dungeonDescription" value:"A dark dungeon deep beneath the surface. It's secrets have long been forgotten. It's purpose wiped from history."/]
+[var name:"dungeonName" value:"" /]
+[var name:"dungeonDescription" value:""/]
 **Dungeon Name:** [TextInput value:dungeonName /]
 
 **Description:** [Textarea value:dungeonDescription /]
@@ -32,15 +32,15 @@ I'm interested in seeing where this is going.
 
 Of course our story will also need a hero. Any ideas?
 
-[var name:"heroName" value:"Little Swordington" /]
-[var name:"heroDescription" value:"A brave and young hero, straight out of hero academy. They're not the smartest and definetly not the bravest. One could say, they are the most generic hero imaginable."/]
+[var name:"heroName" value:"" /]
+[var name:"heroDescription" value:""/]
 **Hero Name:** [TextInput value:heroName/]
 
 **Hero Description:** [Textarea value:heroDescription/]
 
 [Display value:heroName/] always carries a amulette with them called the **amulette of life**. How did they obtain it again?
 
-[var name:"lifeAmuletteOrigin" value:"This amulette was a gift from their mother. It should protect them and remind them where they came from." /]
+[var name:"lifeAmuletteOrigin" value:"" /]
 
 [Textarea value:lifeAmuletteOrigin /]
 
@@ -55,13 +55,13 @@ However this will uncharge the amulette for a day, so keep that in mind.
 
 [Display value:heroName/] also has an old friend that's always at his side. Who are they?
 
-[var name:"friendName" value:"Bark the half goblin" /]
-[var name:"friendDescription" value:"They are always smiling and up for a laugh. As long as you remember you never say them cry."/]
+[var name:"friendName" value:"" /]
+[var name:"friendDescription" value:""/]
 [var name:"friendProfession" value:"Please Select"/]
 
 **Name:** [TextInput value:friendName/]
 
-**Description:** [Textarea value:heroDescription/]
+**Description:** [Textarea value:friendDescription/]
 
 **Procession:** [Select value:friendProfession options:`["Please Select","Thief", "Jester"]`  /]
 
@@ -102,8 +102,8 @@ But then finally, it opened up into a big room. The room is self was quite dark.
 
 After what felt like an hour, the light uncovered a door at the end of the room. But at the same time, they heared a loud noise. They were not along.
 
-[var name:"monsterName" value:"Giant Spider" /]
-[var name:"monsterDescription" value:"An eight legged beast in the size of a big dog. Their fags looked poisonous."/]
+[var name:"monsterName" value:"" /]
+[var name:"monsterDescription" value:""/]
 
 **Name:** [TextInput value:monsterName/]
 
