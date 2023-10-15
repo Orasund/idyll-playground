@@ -1,169 +1,179 @@
-[meta title:"My Idyll Post" description:"Short description of your project" /]
+[meta title:"A story about a dungeon and its creator" description:"A choose your own adventure story" /]
 
 [Header
   fullWidth:true
-  title:"My Idyll Post"
-  subtitle:"Welcome to Idyll. Open index.idyll to start writing"
-  author:"Your Name Here"
-  authorLink:"https://idyll-lang.org"
+  title:"A story about a dungeon and its creator"
+  subtitle:"A choose your own adventure story"
+  author:"Lucas Payr"
   date:"Oct 15, 2023"
   background:"#222222"
   color:"#ffffff"
    /]
 
-## Introduction
+[var name:"page" value:0 /]
 
-This is an Idyll scrolly-telling post. It is generated via
-the file `index.idyll`. To compile this post using
-idyll, run the command `idyll` inside of this directory.
+[Conditional if:`page === 0`]
+# Introduction
 
-Idyll posts are designed to support interaction and
-data-driven graphics.
+This book tells the story of a dungeon and it's creator: **YOU**.
+This tale has yet to be written. 
+In fact, you and I will be writting this story together.
+To start, Do you have an idea how the dungeon is called and how it looks like?
 
-Configuration can be done via the `idyll` field in `package.json`.
+[var name:"dungeonName" value:"Evil Dungeon" /]
+[var name:"dungeonDescription" value:"A dark dungeon deep beneath the surface. It's secrets have long been forgotten. It's purpose wiped from history."/]
+**Dungeon Name:** [TextInput value:dungeonName /]
 
-[var name:"state" value:0 /]
+**Description:** [Textarea value:dungeonDescription /]
 
-[Scroller currentStep:state]
+[Display value:dungeonName /] sound like a promising name.
+You are really good at this.
+I'm interested in seeing where this is going.
 
-  [Graphic className:"d3-component-container"]
-    [CustomD3Component className:"d3-component" state:`state+1` /]
-  [/Graphic]
+Of course our story will also need a hero. Any ideas?
 
-  [Step]
+[var name:"heroName" value:"Little Swordington" /]
+[var name:"heroDescription" value:"A brave and young hero, straight out of hero academy. They're not the smartest and definetly not the bravest. One could say, they are the most generic hero imaginable."/]
+**Hero Name:** [TextInput value:heroName/]
 
-    ## Markup
+**Hero Description:** [Textarea value:heroDescription/]
 
-    Idyll is based on Markdown.
+[Display value:heroName/] always carries a amulette with them called the **amulette of life**. How did they obtain it again?
 
-    You can use familiar syntax
-    to create **bold** (`**bold**` ) and *italic* (`*italic*` ) styles,
+[var name:"lifeAmuletteOrigin" value:"This amulette was a gift from their mother. It should protect them and remind them where they came from." /]
 
-* lists
-* of
-* items,
+[Textarea value:lifeAmuletteOrigin /]
 
-    ```
-    * lists
-    * of
-    * items,
-    ```
+_The **Heart** card has been added to your deck._
 
-1. and numbered
-2. lists
-3. of items,
+![Heart Card](static/images/heart.webp)
 
+Through this story, you will obtain cards. These cards represent key characters and items.
+Using a card will open up paths but will also have an effect on the character or item.
+In our case the Heart Card represent both the hero and their amulette. You can play the card at any time to let [Display value:heroName/] survive the encounter.
+However this will uncharge the amulette for a day, so keep that in mind.
 
-    ```
-    1. and numbered
-    2. lists
-    3. of items,
-    ```
+[Display value:heroName/] also has an old friend that's always at his side. Who are they?
 
-    in addition to [hyperlinks](https://idyll-lang.org) and images:
+[var name:"friendName" value:"Bark the half goblin" /]
+[var name:"friendDescription" value:"They are always smiling and up for a laugh. As long as you remember you never say them cry."/]
+[var name:"friendProfession" value:"Please Select"/]
 
-    ![quill](static/images/quill.svg)
+**Name:** [TextInput value:friendName/]
 
-    ```
-    ![quill](static/images/quill.svg)
-    ```
-  [/Step]
+**Description:** [Textarea value:heroDescription/]
 
-  [Step]
-    ## Components
+**Procession:** [Select value:friendProfession options:`["Please Select","Thief", "Jester"]`  /]
 
-    Components can be embedded using a bracket syntax:
+[Conditional if:`friendProfession === "Thief"`]
+_The **Key** card has been added to your deck._
 
-    ```
-    [Range /]
-    ```
+![Key Card](static/images/key.webp)
 
-    and can contain nested content:
+[Display value:friendName/] will open up looked doors and chests for you.
+[/Conditional]
+[Conditional if:`friendProfession === "Jester"`]
+_The **Child** card has been added to your deck._
 
-    ```
-    [Equation]e = mc^{2}[/Equation]
-    ```
+![Child Card](static/images/child.webp)
 
-    Components accept properties:
+[Display value:friendName/] will convince any enemy, that you can be trusted.
+[/Conditional]
+[Conditional if:`friendProfession !== "Please Select"`]
+Take good care of them!
 
-    ```
-    [Range value:x min:0 max:1 /]
-    ```
-
-    that can be bound to variables to achieve interactivity (more in next section).
+[button onClick:`page = 1`]Start the story[/button]
+[/Conditional]
 
 
-    A variety of components are included by default. See [all the available components](https://idyll-lang.org/docs/components/). You can also use any html tag, for example: `[div] A div! [/div]`.
+[/Conditional]
 
-    To create your own, add it to the `components/` folder. There are examples of how to use Idyll with React and D3 based components already included.
 
-  [/Step]
 
-  [Step]
-    ## Interactivity
 
-    Here is how you can instantiate a variable and bind it to a component:
+[Conditional if:`page === 1`]
 
-    [var name:"exampleVar" value:5 /]
+# The Beginning of a story
 
-    [Range min:0 max:10 value:exampleVar /]
-    [Display value:exampleVar /]
+[Display value:heroName/] and [Display value:friendName/] wandered through the [Display value:dungeonName /].
+The paths seems to be endless, ever so twisting and turning with little to no side-branches. Non that mattered at least - they checked.
 
-    ```
-    [var name:"exampleVar" value:5 /]
+But then finally, it opened up into a big room. The room is self was quite dark. Following their own tourch light, they took on step at the time.
 
-    [Range min:0 max:10 value:exampleVar /]
-    [Display value:exampleVar /]
-    ```
-  [/Step]
+After what felt like an hour, the light uncovered a door at the end of the room. But at the same time, they heared a loud noise. They were not along.
 
-[/Scroller]
+[var name:"monsterName" value:"Giant Spider" /]
+[var name:"monsterDescription" value:"An eight legged beast in the size of a big dog. Their fags looked poisonous."/]
 
-[Scroller]
+**Name:** [TextInput value:monsterName/]
 
-  [Step]
+**Description:** [Textarea value:monsterDescription/]
 
-    ##Scroller
+A [Display value:monsterName/] appeared out of the shadows. How do our heros proceed?
 
-    The `Scroller` component is used to create scroll-based presentations. It can be used to create scrollytelling articles similar to this.
-    It takes a property `currentStep` which is updated when the user scrolls to a different step.
+[var name:"resolveMonster" value:-1 /]
+[var name:"resolveMonsterFlavourText" value:""/]
 
-    A persistent graphic may also provided using the `Graphic` component in order to create visualizations.
+[button onClick:`resolveMonster = 0` ]\[Use Heart Card\] Defend the beast, while [Display value:friendName/] heads towards the door.[/button]
+[Conditional if:`friendProfession === "Thief"`]
+  [button onClick:`resolveMonster = 1`]\[Use Key Card\] Run to the door and let [Display value:friendName/] lock the door behind you.[/button]
+[/Conditional]
+[Conditional if:`friendProfession === "Jester"`]
+  [button onClick:`resolveMonster = 2`]\[Use Child Card\] Run to the door while [Display value:friendName/] tried to distract the [Display value:monsterName/].[/button]
+[/Conditional]
 
-  [/Step]
+[Conditional if:`resolveMonster === 0`]
 
-  [Step]
+_The **Heart** card has been activated_
 
-    ## Learn More
+Please explain, how [Display value:heroName/] could just bearly fight of [Display value:monsterName/] while [Display value:friendName/] reached the door.
+By playing the heart card, [Display value:heroName/] somehow survived and could reach the door without any major injures, leaving the wounded [Display value:monsterName/] behind.
 
-    To learn more see the documentation at [https://idyll-lang.org/docs/](https://idyll-lang.org/docs/),
-    join our [chatroom](https://gitter.im/idyll-lang/Lobby), or see the project on [GitHub](https://github.com/idyll-lang/idyll).
-  [hr /]
 
-  [/Step]
+[Textarea value:resolveMonsterFlavourText /]
 
-[/Scroller]
+[/Conditional]
 
-[br/]
-# Technical Details
+[Conditional if:`resolveMonster === 1`]
 
-## Installation
+_The **Key** card has been activated_
 
-- Make sure you have `idyll` installed (`npm i -g idyll`).
-- Clone this repo and run `npm install`.
+Please explain, how [Display value:heroName/] and [Display value:friendName/] where chased by [Display value:monsterName/].
+By playing the heart card, [Display value:friendName/] will be able to lock the door behind them but not before getting a major wound.
+Going forward, [Display value:heroName/] will have to care of [Display value:friendName/]. Hopefuly they can assist you again on the next day.
 
-## Developing a post locally
+[Textarea value:resolveMonsterFlavourText /]
 
-Run `idyll`.
+[/Conditional]
 
-## Building a post for production
+[Conditional if:`resolveMonster === 2`]
 
-Run `idyll build`. The output will appear in the top-level `build` folder. To change the output location, change the `output` option in `package.json`.
+_The **Child** card has been activated_
 
-## Deploying
 
-Make sure your post has been built, then deploy the docs folder via any static hosting service.
+Please explain how [Display value:friendName/] distracts the [Display value:monsterName/], while you where heading towards toe door.
+By playing the child card, [Display value:friendName/] will convince the [Display value:monsterName/] to let you pass, but they will get a major wound while trying to do so.
+Going forward, [Display value:heroName/] will have to care of [Display value:friendName/]. Hopefuly they can assist you again on the next day.
 
-## Dependencies
+[Textarea value:resolveMonsterFlavourText /]
 
-You can install custom dependencies by running `npm install <package-name> --save`. Note that any collaborators will also need download the package locally by running `npm install` after pulling the changes.
+[/Conditional]
+
+[Conditional if:`resolveMonsterFlavourText !== ""`]
+  [button onClick:`page = 2`]Continue[/button]
+[/Conditional]
+
+[/Conditional]
+
+
+
+
+
+[Conditional if:`page === 2`]
+
+# To be continued
+
+That's all for now. I hope you liked it.
+
+[/Conditional]
+
