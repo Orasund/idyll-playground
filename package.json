@@ -1,15 +1,22 @@
 {
-  "name": "idyll-playground",
+  "name": "my-idyll-post",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "license": "MIT",
+  "type": "module",
+  "idyll": {
+    "theme": "idyll",
+    "layout": "centered",
+    "css": "styles.css",
+    "authorView": false
   },
-  "author": "",
-  "license": "ISC",
+  "dependencies": {
+    "idyll": "6.0.0-alpha.4",
+    "idyll-d3-component": "^2.0.0",
+    "d3": "7",
+    "d3-selection": "^2.0.0",
+    "d3-transition": "^2.0.0"
+  },
   "devDependencies": {
-    "idyll": "^6.0.0-alpha.6",
-    "idyll-document": "^4.0.0-alpha.4"
+    "gh-pages": "^0.12.0"
   }
 }
