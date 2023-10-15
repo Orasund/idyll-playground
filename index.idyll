@@ -11,6 +11,10 @@
    /]
 
 [var name:"page" value:0 /]
+[var name:"heartCard" value:"" /]
+[var name:"childCard" value:"" /]
+[var name:"keyCard" value:"" /]
+[var name:"choise" value:-1 /]
 
 [Conditional if:`page === 0`]
 # Introduction
@@ -43,6 +47,7 @@ Of course our story will also need a hero. Any ideas?
 [var name:"lifeAmuletteOrigin" value:"" /]
 
 [Textarea value:lifeAmuletteOrigin /]
+
 
 _The **Heart** card has been added to your deck._
 
@@ -82,7 +87,8 @@ _The **Child** card has been added to your deck._
 [Conditional if:`friendProfession !== "Please Select"`]
 Take good care of them!
 
-[button onClick:`page = 1`]Start the story[/button]
+[var name:"friendProfession" value:"Please Select"/]
+[button onClick:`page = 1;heartCard=true;friendProfession === "Thief"?keyCard=true:childCard=true`]Start the story[/button]
 [/Conditional]
 
 
@@ -111,18 +117,17 @@ After what felt like an hour, the light uncovered a door at the end of the room.
 
 A [Display value:monsterName/] appeared out of the shadows. How do our heros proceed?
 
-[var name:"resolveMonster" value:-1 /]
 [var name:"resolveMonsterFlavourText" value:" "/]
 
-[button onClick:`resolveMonster = 0` ]\[Use Heart Card\] Defend the beast, while [Display value:friendName/] heads towards the door.[/button]
-[Conditional if:`friendProfession === "Thief"`]
-  [button onClick:`resolveMonster = 1`]\[Use Key Card\] Run to the door and let [Display value:friendName/] lock the door behind you.[/button]
+[button onClick:`heartCard=false;choise = 0` ]\[Use Heart Card\] Defend the beast, while [Display value:friendName/] heads towards the door.[/button]
+[Conditional if:`keyCard==true`]
+  [button onClick:`keyCard=false;choise = 1`]\[Use Key Card\] Run to the door and let [Display value:friendName/] lock the door behind you.[/button]
 [/Conditional]
-[Conditional if:`friendProfession === "Jester"`]
-  [button onClick:`resolveMonster = 2`]\[Use Child Card\] Run to the door while [Display value:friendName/] tried to distract the [Display value:monsterName/].[/button]
+[Conditional if:`childCard==true`]
+  [button onClick:`childCard=false;choise = 2`]\[Use Child Card\] Run to the door while [Display value:friendName/] tried to distract the [Display value:monsterName/].[/button]
 [/Conditional]
 
-[Conditional if:`resolveMonster === 0`]
+[Conditional if:`choise === 0`]
 
 _The **Heart** card has been activated_
 
@@ -134,7 +139,7 @@ By playing the heart card, [Display value:heroName/] somehow survived and could 
 
 [/Conditional]
 
-[Conditional if:`resolveMonster === 1`]
+[Conditional if:`choise === 1`]
 
 _The **Key** card has been activated_
 
@@ -146,7 +151,7 @@ Going forward, [Display value:heroName/] will have to care of [Display value:fri
 
 [/Conditional]
 
-[Conditional if:`resolveMonster === 2`]
+[Conditional if:`choise === 2`]
 
 _The **Child** card has been activated_
 
@@ -160,7 +165,7 @@ Going forward, [Display value:heroName/] will have to care of [Display value:fri
 [/Conditional]
 
 [Conditional if:`resolveMonsterFlavourText !== " "`]
-  [button onClick:`page = 2`]Continue[/button]
+  [button onClick:`choise = -1;page = 2`]Continue[/button]
 [/Conditional]
 
 [/Conditional]
@@ -171,9 +176,31 @@ Going forward, [Display value:heroName/] will have to care of [Display value:fri
 
 [Conditional if:`page === 2`]
 
-# To be continued
+# The encounter
 
-That's all for now. I hope you liked it.
+As the friends continue their journey, they slowly become tied. They decide that it's best to find a place to rest and settle for the night.
+After a while they find a side branch from the main path. This might lead to a good spot to rest.
+
+As they continue, they see a light at the end of the tunnel. The light comes from a small fire next to some old ruins.
+A smaller figure was sitting at the fire. Who did our friends encounter?
+
+[var name:"strangerName" value:"" /]
+[var name:"strangerDescription" value:" "/]
+
+**Name:** [TextInput value:strangerName/]
+
+**Description:** [Textarea value:strangerDescription/]
+
+[Display value:heroName/] and [Display value:friendName/] stopped as they saw the stranger. 
+Are they dangerous? Can they be trusted? They need to come up with a plan.
+
+[Conditional if:`keyCard == True`]
+  [button]\[Use Key Card\][Display value:friendName] suggests to do a surprise attack[/button]
+[/Conditional]
+[Conditional if:`childCard == True`]
+  [button]\[Use Child Card\][Display value:friendName] suggests to do the talking[/button]
+[/Conditional]
+[button]Step into the light and see how they react.[/button]
 
 [/Conditional]
 
